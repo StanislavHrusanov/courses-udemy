@@ -4,10 +4,10 @@ import Button from "./UI/Button.jsx";
 import CartContext from "../contexts/CartContext.jsx";
 
 export default function MealItem({ meal }) {
-  const { addItems } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
   function handleAddItem() {
-    addItems(meal);
+    addItem(meal);
   }
 
   return (

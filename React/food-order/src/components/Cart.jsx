@@ -7,7 +7,7 @@ import CartItem from "./CartItem.jsx";
 import { currencyFormatter } from "../util/formatting.js";
 
 export default function Cart() {
-  const { items } = useContext(CartContext);
+  const { items, addItem, removeItem } = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
 
   const cartTotal = items.reduce((total, item) => {
@@ -28,6 +28,8 @@ export default function Cart() {
             name={item.name}
             quantity={item.quantity}
             price={item.price}
+            onIncrease={() => addItem(item)}
+            onDecrease={() => removeItem(item.id)}
           />
         ))}
       </ul>
