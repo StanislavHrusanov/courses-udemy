@@ -3,6 +3,7 @@ import Meals from "./components/Meals.jsx";
 import { CartContextProvider } from "./contexts/CartContext.jsx";
 
 function App() {
+
   return (
     <CartContextProvider>
       <Header />
