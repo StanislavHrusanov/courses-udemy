@@ -1,10 +1,17 @@
 import { useContext } from "react";
 import CartContext from "../contexts/CartContext.jsx";
 import UserProgressContext from "../contexts/UserProgressContext.jsx";
+import Modal from "./UI/Modal.jsx";
+import Button from "./UI/Button.jsx";
+import { currencyFormatter } from "../util/formatting.js";
 
 export default function Cart() {
   const { items } = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
+
+  const cartTotal = items.reduce((total, item) => {
+    return total + item.quantity * item.price;
+  }, 0);
 
   return (
     <Modal className="cart" open={userProgressCtx.progress === "cart"}>
