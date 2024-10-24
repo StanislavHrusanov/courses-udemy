@@ -25,6 +25,7 @@ import HomePage from "./pages/Home";
 import EventsPage from "./pages/Events";
 import EventDetailPage from "./pages/EventDetail";
 import NewEventPage from "./pages/NewEvent";
+import EditEventPage from "./pages/Edit";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +34,9 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/events", element: <EventsPage /> },
-      { path: "/events/details", element: <EventDetailPage /> },
+      { path: "/events/:id", element: <EventDetailPage /> },
       { path: "/events/newEvent", element: <NewEventPage /> },
+      { path: "/events/:id/edit", element: <EditEventPage /> },
     ],
   },
 ]);
