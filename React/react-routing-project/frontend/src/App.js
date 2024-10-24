@@ -23,6 +23,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import EventsPage from "./pages/Events";
+import EventDetailPage from "./pages/EventDetail";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/events", element: <EventsPage /> },
+      { path: "/events/details", element: <EventDetailPage /> },
     ],
   },
 ]);
