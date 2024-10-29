@@ -1,0 +1,105 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    width: 246px;
+    height: auto;
+    background-color: rgb(245, 223, 190);
+    box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 1);
+    color: darkblue;
+    border-radius: 5px;
+}
+
+.desc {
+    margin: 0.5rem;
+}
+
+.desc>p {
+    color: black;
+}
+
+.review a {
+    text-decoration: none;
+}
+
+.review h3 {
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 0.75rem;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.star-rating-container {
+    margin-top: 0.75rem;
+    unicode-bidi: bidi-override;
+    text-align: center;
+    direction: ltr;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: ltr;
+}
+
+.rating span {
+    font-size: 1.6rem;
+    padding: 2px;
+    color: transparent;
+    font-weight: lighter;
+}
+
+.full::before {
+    content: "\2605";
+    position: absolute;
+    color: orange;
+}
+
+.empty::before {
+    content: "\2605";
+    position: absolute;
+    color: grey;
+}
+
+.comment {
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    font-style: italic;
+    text-align: center;
+    overflow: hidden;
+}
+
+@media screen and (min-width:768px) {
+    .review {
+        width: calc(90% + 2.5rem);
+    }
+}
+
+@media screen and (min-width:950px) {
+    .review {
+        width: calc((3*247px) + 3.5rem);
+    }
+
+    .review h3 {
+        font-size: 2rem;
+    }
+
+    .rating span {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .review {
+        width: calc((3*247px) + 7rem);
+    }
+
+    .review a:hover {
+        color: rgb(192, 129, 117);
+    }
+}
