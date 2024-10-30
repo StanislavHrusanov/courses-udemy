@@ -1,0 +1,134 @@
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 246px;
+    height: 345px;
+    box-sizing: border-box;
+    background-color: rgb(245, 223, 190);
+    color: darkblue;
+    box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+}
+
+.restaurant>h3 {
+    width: 84%;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 1.25rem 0 0;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.restaurant>img {
+    width: 84%;
+    height: 140px;
+    border: 2px solid darkblue;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    text-align: center;
+    direction: ltr;
+    margin-left: -2px;
+}
+
+.rating span {
+    font-size: 1.6rem;
+    padding: 3px;
+    color: transparent;
+}
+
+.full::before {
+    content: "\2605";
+    position: absolute;
+    color: orange;
+}
+
+.empty::before {
+    content: "\2605";
+    position: absolute;
+    color: grey;
+}
+
+.data-buttons {
+    font-size: 1.4rem;
+    padding-top: 7px;
+    text-align: center;
+}
+
+.details-btn {
+    background-color: darkblue;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    padding: 0.6em 1.1em;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.review-count {
+    margin: 0.4rem;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+}
+
+@media screen and (min-width:768px) {
+
+    .restaurant {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width:950px) {
+    .restaurant {
+        width: 247px;
+        height: 360px;
+    }
+
+    .restaurant>img {
+        width: 207px;
+    }
+
+    .restaurant>h3 {
+        font-size: 2rem;
+    }
+
+    .rating span {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .restaurant {
+        width: 22%;
+        height: 340px;
+    }
+
+    .restaurant>img {
+        width: 84%;
+    }
+
+    .restaurant>h3 {
+        font-size: 1.5rem;
+    }
+
+    .rating span {
+        font-size: 1.5rem;
+    }
+
+    .details-btn:hover {
+        transition: all 200ms ease-in-out;
+        background-color: rgb(192, 129, 117);
+        color: white;
+    }
+}
