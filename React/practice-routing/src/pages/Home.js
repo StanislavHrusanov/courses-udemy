@@ -2,12 +2,12 @@ import styles from "./Home.module.css";
 
 import { Restaurant } from "../components/Restaurant/Restaurant";
 import { LastAdded } from "../components/LastAdded/LastAdded";
-// import { LastReview } from "../components/LastReview/LastReview";
+import { LastReview } from "../components/LastReview/LastReview";
 import { json, useLoaderData } from "react-router-dom";
 import { getAvgRating } from "../util";
 
 function Home() {
-  const restaurants = useLoaderData();
+  const { restaurants, lastReview } = useLoaderData();
   console.log(restaurants);
 
   const mostPopular = restaurants
@@ -57,13 +57,13 @@ function Home() {
         <div className={styles["last-review"]}>
           <h3>Last review</h3>
 
-          {/* {lastReview.length > 0 ? (
+          {lastReview.length > 0 ? (
             <LastReview key={lastReview[0]._id} review={lastReview[0]} />
           ) : (
             <p className={styles["no-restaurants"]}>
               There is no reviews added yet!
             </p>
-          )} */}
+          )}
         </div>
       </div>
     </section>
@@ -73,12 +73,23 @@ function Home() {
 export default Home;
 
 export async function loader() {
-  const response = await fetch("http://localhost:3030/data/restaurants");
+  const restaurantsResponse = await fetch(
+    "http://localhost:3030/data/restaurants"
+  );
+  const lastReviewedResponse = await fetch(
+    "http://localhost:3030/data/reviews?sortBy=_createdOn%20desc&pageSize=1"
+  );
 
-  if (!response.ok) {
+  if (!restaurantsResponse.ok) {
+    throw json({ message: "Error" });
+  } else if (!lastReviewedResponse.ok) {
     throw json({ message: "Error" });
   } else {
-    const resData = await response.json();
-    return resData;
+    const restaurantsData = await restaurantsResponse.json();
+    const lastReviewedData = await lastReviewedResponse.json();
+    return {
+      restaurants: restaurantsData,
+      lastReview: lastReviewedData,
+    };
   }
 }
