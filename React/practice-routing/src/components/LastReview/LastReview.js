@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./LastReview.module.css";
 
+import { getAvgRating } from "../../util";
+
 export const LastReview = ({ review }) => {
     const rating = review.rating;
     const comment = review.comment !== '' ? review.comment : '(no comment)';
@@ -21,18 +23,21 @@ export const LastReview = ({ review }) => {
                 <p>Rating:</p>
                 <div className={styles["star-rating-container"]}>
                     <h2> <div className={styles["rating"]}>
-                        {[...Array(5)].map((star, index) => {
-                            index += 1;
+                    {[...Array(5)].map((star, index) => {
+          index += 1;
+          const rating = getAvgRating(restaurant.reviews);
 
-                            return (
-                                <span
-                                    key={index}
-                                    className={index <= rating ? styles["full"] : styles["empty"]}
-                                >
-                                    ☆
-                                </span>
-                            )
-                        })}
+          return (
+            <span
+              key={index}
+              className={
+                index <= Math.round(rating) ? styles["full"] : styles["empty"]
+              }
+            >
+              ☆
+            </span>
+          );
+        })}
 
                     </div>
                     </h2>
