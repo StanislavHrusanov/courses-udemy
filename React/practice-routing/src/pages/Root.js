@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation/MainNavigation";
 
 import styles from "./Root.module.css";
+import Footer from "../components/Footer/Footer";
 
 export default function RootLayout() {
   return (
@@ -10,6 +11,7 @@ export default function RootLayout() {
       <main className={styles["main"]}>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }
