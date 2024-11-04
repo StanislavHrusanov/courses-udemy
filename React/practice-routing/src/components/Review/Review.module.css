@@ -1,0 +1,60 @@
+.review-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 8px;
+    box-sizing: border-box;
+    border: #444444 solid 1px;
+}
+.review-author-date{
+    display: flex;
+    flex-direction: column;
+}
+
+.author {
+    text-align: left;
+    margin-right: 0.5rem;
+}
+
+.posted {
+    text-align: left;
+    color: #888888;
+}
+
+.rating {
+    margin-left: -4px;
+    margin-top: 3px;
+    unicode-bidi: bidi-override;
+    text-align: left;
+    direction: ltr;
+}
+
+.rating span {
+    font-size: 1.25rem;
+    padding: 2px;
+    text-align: center;
+    color: transparent;
+    font-weight: lighter;
+}
+
+.full::before {
+    content: "\2605";
+    position: absolute;
+    color: orange;
+}
+
+.empty::before {
+    content: "\2605";
+    position: absolute;
+    color: grey;
+}
+.comment {
+    font-size: 1rem;
+    font-style: italic;
+    color: #444444;
+    box-sizing: border-box;
+    line-height: 1.2;
+    overflow: hidden;
+    text-align: justify;
+    word-break: normal;
+}
