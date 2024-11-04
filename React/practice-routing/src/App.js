@@ -2,6 +2,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import Home, { loader as homeLoader } from "./pages/Home";
 import Restaurants, { loader as restaurantsLoader } from "./pages/Restaurants";
+import Details, { loader as detailsLoader } from "./pages/Details";
+import Edit, { action as editRestaurantAction } from "./pages/Edit";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +15,37 @@ const router = createBrowserRouter([
       { index: true, element: <Home />, loader: homeLoader },
       {
         path: "restaurants",
-        element: <Restaurants />,
-        loader: restaurantsLoader,
+        children: [
+          {
+            index: true,
+            element: <Restaurants />,
+            loader: restaurantsLoader,
+          },
+          {
+            path: ":restaurantId",
+            id: "restaurant-details",
+            loader: detailsLoader,
+            children: [
+              {
+                index: true,
+                element: <Details />,
+              },
+              {
+                path: "edit",
+                element: <Edit />,
+                action: editRestaurantAction,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
