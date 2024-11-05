@@ -8,6 +8,9 @@ import Register, { action as regiserAction } from "./pages/Register";
 import Login, { action as loginAction } from "./pages/Login";
 import { action as logoutAction } from "./pages/Logout";
 import { getUser, checkIsAuth as checkIsAuthLoader } from "./util";
+import AddRestaurant, {
+  action as addRestaurantAction,
+} from "./pages/AddRestaurant";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +61,11 @@ const router = createBrowserRouter([
       {
         path: "logout",
         action: logoutAction,
+      },
+      {
+        path: "addRestaurant",
+        element: <AddRestaurant />,
+        action: addRestaurantAction,
       },
     ],
   },
