@@ -4,13 +4,17 @@ import Home, { loader as homeLoader } from "./pages/Home";
 import Restaurants, { loader as restaurantsLoader } from "./pages/Restaurants";
 import Details, { loader as detailsLoader } from "./pages/Details";
 import Edit, { action as editRestaurantAction } from "./pages/Edit";
-import Register,{action as regiserAction} from "./pages/Register";
-import Login from "./pages/Login";
+import Register, { action as regiserAction } from "./pages/Register";
+import Login, { action as loginAction } from "./pages/Login";
+import { action as logoutAction } from "./pages/Logout";
+import { getUser } from "./util";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    id: "root",
+    loader: getUser,
     children: [
       { index: true, element: <Home />, loader: homeLoader },
       {
@@ -42,11 +46,16 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
-        action:regiserAction
+        action: regiserAction,
       },
       {
         path: "login",
         element: <Login />,
+        action: loginAction,
+      },
+      {
+        path: "logout",
+        action: logoutAction, 
       },
     ],
   },

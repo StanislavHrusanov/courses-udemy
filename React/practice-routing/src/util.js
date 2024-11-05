@@ -31,3 +31,11 @@ export const commentDateConverter = (par) => {
 
   return formatedDate;
 };
+
+export function getUser() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    return null;
+  }
+  return user;
+}
