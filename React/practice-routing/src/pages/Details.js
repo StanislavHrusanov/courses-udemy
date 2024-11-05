@@ -7,10 +7,11 @@ import Review from "../components/Review/Review";
 import { getAvgRating } from "../util";
 
 function Details() {
+  const user = useRouteLoaderData("root");
   const [showModal, setShowModal] = useState(false);
   const restaurant = useRouteLoaderData("restaurant-details");
 
-  //   const isOwner = restaurant._ownerId === user?._id;
+  const isOwner = restaurant._ownerId === user?._id;
 
   // const userReview = restaurant.reviews?.find(x => x._ownerId === user?._id);
 
@@ -107,17 +108,22 @@ function Details() {
             </h3>
           </div>
         </div>
-        {
+        {user && (
           <div className={styles["buttons"]}>
-            <Link to={`/restaurants/${restaurant._id}/edit`}>
-              <button className={styles["edit-button"]}>Edit</button>
-            </Link>
-            <button className={styles["delete-button"]}>Delete</button>
-            <button className={styles["favourite-add-button"]}>
-              Add to Favourites
-            </button>
+            {isOwner ? (
+              <>
+                <Link to={`/restaurants/${restaurant._id}/edit`}>
+                  <button className={styles["edit-button"]}>Edit</button>
+                </Link>
+                <button className={styles["delete-button"]}>Delete</button>
+              </>
+            ) : (
+              <button className={styles["favourite-add-button"]}>
+                Add to Favourites
+              </button>
+            )}
           </div>
-        }
+        )}
 
         <div className={styles["reviews-container"]}>
           {

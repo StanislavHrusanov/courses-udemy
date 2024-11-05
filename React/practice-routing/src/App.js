@@ -7,7 +7,7 @@ import Edit, { action as editRestaurantAction } from "./pages/Edit";
 import Register, { action as regiserAction } from "./pages/Register";
 import Login, { action as loginAction } from "./pages/Login";
 import { action as logoutAction } from "./pages/Logout";
-import { getUser } from "./util";
+import { getUser, checkIsAuth as checkIsAuthLoader } from "./util";
 
 const router = createBrowserRouter([
   {
@@ -46,16 +46,18 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+        loader: checkIsAuthLoader,
         action: regiserAction,
       },
       {
         path: "login",
         element: <Login />,
+        loader: checkIsAuthLoader,
         action: loginAction,
       },
       {
         path: "logout",
-        action: logoutAction, 
+        action: logoutAction,
       },
     ],
   },

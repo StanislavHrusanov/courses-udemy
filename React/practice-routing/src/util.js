@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 export const getAvgRating = (reviews) => {
   let sumOfRatings = 0;
   if (reviews) {
@@ -38,4 +40,14 @@ export function getUser() {
     return null;
   }
   return user;
+}
+
+export function checkIsAuth() {
+  const user = getUser();
+
+  if (user) {
+    return redirect("/");
+  }
+
+  return null;
 }
