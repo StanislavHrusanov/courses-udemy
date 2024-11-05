@@ -86,6 +86,7 @@ export async function loader() {
   } else {
     const restaurantsData = await restaurantsResponse.json();
     const lastReviewedData = await lastReviewedResponse.json();
+
     return {
       restaurants: restaurantsData,
       lastReview: lastReviewedData,
