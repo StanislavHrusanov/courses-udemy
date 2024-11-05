@@ -4,7 +4,7 @@ import Home, { loader as homeLoader } from "./pages/Home";
 import Restaurants, { loader as restaurantsLoader } from "./pages/Restaurants";
 import Details, { loader as detailsLoader } from "./pages/Details";
 import Edit, { action as editRestaurantAction } from "./pages/Edit";
-import Register from "./pages/Register";
+import Register,{action as regiserAction} from "./pages/Register";
 import Login from "./pages/Login";
 
 const router = createBrowserRouter([
@@ -42,6 +42,7 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+        action:regiserAction
       },
       {
         path: "login",

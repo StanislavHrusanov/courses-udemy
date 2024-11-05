@@ -2,6 +2,23 @@ import { Link } from "react-router-dom";
 import styles from "./MainNavigation.module.css";
 
 function MainNavigation() {
+  async function logout() {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user) {
+      try {
+        await fetch("http://localhost:3030/users/logout", {
+          method: "GET",
+          headers: {
+            "X-Authorization": user.accessToken,
+          },
+        });
+        localStorage.removeItem("user");
+      } catch (error) {
+        window.alert(error);
+      }
+    }
+  }
   return (
     <header className={styles["header"]}>
       <h1>
@@ -29,7 +46,7 @@ function MainNavigation() {
           <Link className={styles["nav-link"]} to="/myProfile">
             My profile
           </Link>
-          <Link className={styles["nav-link"]} to="/logout">
+          <Link onClick={logout} className={styles["nav-link"]}>
             Logout
           </Link>
         </div>

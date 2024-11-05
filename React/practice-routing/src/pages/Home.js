@@ -8,7 +8,6 @@ import { getAvgRating } from "../util";
 
 function Home() {
   const { restaurants, lastReview } = useLoaderData();
-  console.log(restaurants);
 
   const mostPopular = restaurants
     .slice()
