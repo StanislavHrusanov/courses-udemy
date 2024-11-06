@@ -1,5 +1,6 @@
-import CartButton from '../Cart/CartButton';
-import classes from './MainHeader.module.css';
+import { Link } from "react-router-dom";
+import CartButton from "../Cart/CartButton";
+import classes from "./MainHeader.module.css";
 
 const MainHeader = (props) => {
   return (
@@ -8,7 +9,9 @@ const MainHeader = (props) => {
       <nav>
         <ul>
           <li>
-            <CartButton />
+            <Link to="/cart">
+              <CartButton />
+            </Link>
           </li>
         </ul>
       </nav>
