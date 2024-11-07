@@ -4,7 +4,7 @@ import classes from "./Products.module.css";
 const DUMMY_PRODUCTS = [
   {
     id: "p1",
-    price: 6,
+    price: 7,
     name: "My First Book",
     description: "The first book I ever wrote",
   },

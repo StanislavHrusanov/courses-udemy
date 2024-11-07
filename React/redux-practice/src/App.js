@@ -46,6 +46,7 @@ function App() {
       dispatch(sendCartData(cart));
     }
   }, [cart, dispatch]);
+  
   return (
     <>
       {notification && (
