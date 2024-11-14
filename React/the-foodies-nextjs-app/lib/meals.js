@@ -1,8 +1,10 @@
-import sql from 'better-sqlite3';
+import sql from "better-sqlite3";
 
-const db = sql('meals.db');
+const db = sql("meals.db");
 
 export async function getMeals() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  return db.prepare('SELECT * FROM meals').all();
+
+  // throw new Error("An Error occured!");
+  return db.prepare("SELECT * FROM meals").all();
 }
