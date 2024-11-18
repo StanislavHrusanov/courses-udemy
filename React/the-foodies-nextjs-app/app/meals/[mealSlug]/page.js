@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { getMeal } from "@/lib/meals";
 import styles from "./page.module.css";
 
-export async function generateMetadata({ params }) {
-  const meal = await getMeal(params.mealSlug);
+export async function generateMetadata(props) {
+  const params = await props.params;
+  const mealSlug = params.mealSlug;
+  const meal = getMeal(mealSlug);
 
   if (!meal) {
     notFound();
@@ -17,8 +19,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
+export default async function MealDetailsPage(props) {
+  const params = await props.params;
+  const mealSlug = params.mealSlug;
+  const meal = getMeal(mealSlug);
 
   if (!meal) {
     notFound();
