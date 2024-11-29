@@ -1,7 +1,9 @@
 import { useAccordionCtx } from "./Accordion.jsx";
+import { useAccordionItemCtx } from "./AccordionItem.jsx";
 
-export default function AccordionContent({ id, children, className }) {
+export default function AccordionContent({ children, className }) {
   const { openItemId } = useAccordionCtx();
+  const id = useAccordionItemCtx();
 
   const isOpen = openItemId === id;
 
